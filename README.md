@@ -1,5 +1,5 @@
 #CS46B_HW
-Homework Projects for Introduction to Data Structures Course at SJSU
+##Homework Projects for Introduction to Data Structures Course at SJSU
 
 HW1: Was review and therefore is not placed into this repo.
 
