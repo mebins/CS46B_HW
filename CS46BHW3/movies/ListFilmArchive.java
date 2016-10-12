@@ -1,27 +1,44 @@
 package movies;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.TreeSet;
 
-public class HashFilmArchive extends HashSet<Movie> implements FilmArchive {
+public class ListFilmArchive extends ArrayList<Movie> implements FilmArchive {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see movies.FilmArchive#getSorted()
 	 */
 	@Override
 	public ArrayList<Movie> getSorted() {
-		TreeSet<Movie> list = new TreeSet<Movie>(this);
+		// TODO Auto-generated method stub
+		TreeSet<Movie> list = new TreeSet(this);
 		ArrayList<Movie> organizedList = new ArrayList<Movie>(list);
 		return organizedList;
 	}
-	
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.util.ArrayList#add(java.lang.Object)
+	 */
+	@Override
+	public boolean add(Movie m) {
+		for (Movie element : this) {
+			if (element.equals(m)) {
+				return false;
+			}
+		}
+		super.add(m);
+		return true;
+	}
+
 	/*
 	 * MAIN METHOD
 	 */
 	public static void main(String[] args) {
-		HashFilmArchive archive = new HashFilmArchive();
+		ListFilmArchive archive = new ListFilmArchive();
 		for (Movie m : Movie.getTestMovies()) {
 			archive.add(m);
 		}

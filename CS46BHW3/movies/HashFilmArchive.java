@@ -1,26 +1,28 @@
 package movies;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.TreeSet;
 
-public class TreeFilmArchive extends TreeSet<Movie> implements FilmArchive {
+public class HashFilmArchive extends HashSet<Movie> implements FilmArchive {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see movies.FilmArchive#getSorted()
 	 */
 	@Override
 	public ArrayList<Movie> getSorted() {
-		ArrayList<Movie> organizedList = new ArrayList<Movie>(this);
-
+		TreeSet<Movie> list = new TreeSet<Movie>(this);
+		ArrayList<Movie> organizedList = new ArrayList<Movie>(list);
 		return organizedList;
 	}
-	
+
 	/*
 	 * MAIN METHOD
 	 */
 	public static void main(String[] args) {
-		TreeFilmArchive archive = new TreeFilmArchive();
+		HashFilmArchive archive = new HashFilmArchive();
 		for (Movie m : Movie.getTestMovies()) {
 			archive.add(m);
 		}
@@ -33,5 +35,4 @@ public class TreeFilmArchive extends TreeSet<Movie> implements FilmArchive {
 			System.out.println(m);
 		}
 	}
-
 }

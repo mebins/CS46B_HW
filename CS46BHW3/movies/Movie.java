@@ -23,7 +23,8 @@ public class Movie implements Comparable<Movie> {
 	 * @see java.lang.Comparable#compareTo(java.lang.Object)
 	 */
 	@Override
-	public int compareTo(Movie m) {
+	public int compareTo(Movie x) {
+		Movie m  = (Movie)x;
 		if (title.compareTo(m.title) == 0) {
 			if (year == m.year) {
 				return 0;
@@ -39,7 +40,8 @@ public class Movie implements Comparable<Movie> {
 	 * See's if two objects are the exact same.
 	 * @param m The Movie Object that is being compared
 	 */
-	public boolean equals(Movie m) {
+	public boolean equals(Object x) {
+		Movie m = (Movie) x;
 		if (m.title.equals(title) && m.year == year) {
 			return true;
 		}
@@ -75,6 +77,7 @@ public class Movie implements Comparable<Movie> {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#hashCode()
 	 */
 	public int hashCode() {
